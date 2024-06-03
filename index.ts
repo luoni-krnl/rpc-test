@@ -1,7 +1,7 @@
 import {
   Connection,
   Keypair,
-  LAMPORTS_PER_SOL,
+  // LAMPORTS_PER_SOL,
   SystemProgram,
   Transaction,
   sendAndConfirmTransaction,
@@ -26,15 +26,24 @@ dotenv.config();
 
   console.log({ hashAndSig });
 
-  const fromKeypair = Keypair.generate();
+  const fromKeypair = Keypair.fromSecretKey(
+    Uint8Array.from([
+      238, 236, 132, 46, 124, 160, 34, 97, 178, 46, 63, 223, 108, 210, 62, 163,
+      246, 38, 181, 130, 102, 164, 142, 81, 197, 115, 137, 237, 217, 224, 200,
+      95, 140, 67, 41, 211, 251, 201, 61, 92, 132, 79, 238, 207, 47, 241, 125,
+      94, 179, 242, 210, 82, 37, 120, 17, 102, 225, 4, 183, 158, 229, 162, 244,
+      186,
+    ])
+  );
+  // const fromKeypair = Keypair.generate();
   const toKeypair = Keypair.generate();
 
-  const airdropSignature = await connection.requestAirdrop(
-    fromKeypair.publicKey,
-    LAMPORTS_PER_SOL
-  );
+  // const airdropSignature = await connection.requestAirdrop(
+  //   fromKeypair.publicKey,
+  //   LAMPORTS_PER_SOL
+  // );
 
-  await connection.confirmTransaction(airdropSignature);
+  // await connection.confirmTransaction(airdropSignature);
 
   const lamportsToSend = 1_000_000;
 
