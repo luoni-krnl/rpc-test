@@ -1,0 +1,75 @@
+{
+  "address": "9TRhu4fGB2nPXFGWQUj9sLZdte5bpPucNVcAgLeKXE96",
+  "metadata": {
+    "name": "policy_engine",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "set_allow",
+      "discriminator": [
+        90,
+        217,
+        150,
+        63,
+        175,
+        160,
+        103,
+        126
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "is_allowed",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AllowInfo",
+      "discriminator": [
+        83,
+        204,
+        221,
+        102,
+        130,
+        210,
+        37,
+        105
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "AllowInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "is_allowed",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}

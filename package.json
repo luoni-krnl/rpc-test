@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@solana/buffer-layout": "^4.0.1",
     "@solana/web3.js": "file:../solana-krnl.js/packages/library-legacy",
     "dotenv": "^16.4.5",
     "ts-node": "^10.9.2",

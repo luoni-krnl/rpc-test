@@ -1,7 +1,7 @@
 import {
   Connection,
   Keypair,
-  // LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL,
   SystemProgram,
   Transaction,
   sendAndConfirmTransaction,
@@ -20,7 +20,7 @@ dotenv.config();
     token
   );
 
-  const faasRequests: string[] = ["KYT", "KYC"];
+  const faasRequests: string[] = ["PE"];
 
   const hashAndSig = await connection.sendKrnlTransactionRequest(faasRequests);
 
@@ -28,22 +28,22 @@ dotenv.config();
 
   const fromKeypair = Keypair.fromSecretKey(
     Uint8Array.from([
-      238, 236, 132, 46, 124, 160, 34, 97, 178, 46, 63, 223, 108, 210, 62, 163,
-      246, 38, 181, 130, 102, 164, 142, 81, 197, 115, 137, 237, 217, 224, 200,
-      95, 140, 67, 41, 211, 251, 201, 61, 92, 132, 79, 238, 207, 47, 241, 125,
-      94, 179, 242, 210, 82, 37, 120, 17, 102, 225, 4, 183, 158, 229, 162, 244,
-      186,
+      175, 242, 193, 162, 71, 138, 145, 247, 230, 225, 88, 215, 28, 196, 28,
+      177, 49, 155, 10, 197, 198, 23, 241, 102, 22, 17, 147, 3, 11, 146, 48,
+      203, 109, 135, 146, 59, 33, 115, 4, 174, 36, 230, 242, 46, 107, 169, 45,
+      81, 79, 137, 14, 139, 30, 30, 224, 94, 175, 81, 212, 71, 86, 240, 189,
+      190,
     ])
   );
   // const fromKeypair = Keypair.generate();
   const toKeypair = Keypair.generate();
 
-  // const airdropSignature = await connection.requestAirdrop(
-  //   fromKeypair.publicKey,
-  //   LAMPORTS_PER_SOL
-  // );
+  const airdropSignature = await connection.requestAirdrop(
+    fromKeypair.publicKey,
+    LAMPORTS_PER_SOL
+  );
 
-  // await connection.confirmTransaction(airdropSignature);
+  await connection.confirmTransaction(airdropSignature);
 
   const lamportsToSend = 1_000_000;
 
